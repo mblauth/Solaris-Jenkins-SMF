@@ -11,7 +11,6 @@ agentJar=$(getproparg jenkins/agentJar)
 url=$(getproparg jenkins/url)
 workDir=$(getproparg jenkins/workDir)
 secret=$(getproparg jenkins/secret)
-javaExecutable=$(getproparg jenkins/javaExecutable)
 
 fail() {
     echo $1
@@ -21,7 +20,5 @@ fail() {
 
 [[ -z "$agentJar" || -z "$url" || -z "$workDir" || -z "$secret" ]] && fail "not all required properties were set" ]]
 
-[ -z $javaExecutable ] && javaExecutable=java
-
-$javaExecutable -jar "$agentJar" -jnlpUrl "$url" -secret "$secret" -workDir "$workDir"
+java -jar "$agentJar" -jnlpUrl "$url" -secret "$secret" -workDir "$workDir"
 exit $SMF_EXIT_OK
