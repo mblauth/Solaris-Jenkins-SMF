@@ -11,7 +11,8 @@ For installation follow these steps:
 7. Configure secret by running `svccfg -s site/jenkins setprop jenkins/secret=<secret>`.
 8. Configure Java executable (optional) by running `svccfg -s site/jenkins setprop jenkins/javaExecutable=<path to java executable>`.
 8. Ensure you have a user called "jenkins" with write access to the working directory.
-9. Start the service with `svcadm enable jenkins`
-10. Check status with `svcs -l jenkins`
+9. Refresh the service configuration with `svcadm refresh jenkins`
+10. Start the service with `svcadm enable jenkins`
+11. Check status with `svcs -l jenkins`
 
 In case you want to use a specific Java instance not on the PATH, e.g. on Solaris 10 (defaults to Java 6), make sure you add the Java /bin folder to your path via `svccfg -s site/jenkins setenv PATH <Path to Java /bin folder:rest of your PATH>`.
