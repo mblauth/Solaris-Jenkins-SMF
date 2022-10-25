@@ -3,7 +3,7 @@ This is an SMF configuration for running a Jenkins agent on Solaris
 For installation follow these steps:
 
 1. copy jenkins.sh to /lib/svc/method
-2. jenkins.xml to /lib/svc/manifest/site
+2. jenkins.xml to /lib/svc/manifest/site (/var/svc/manifest on Solaris 10)
 3. Load manifest by running `svcadm restart manifest-import`
 4. Configure agent.jar location by running `svccfg -s site/jenkins setprop jenkins/agentJar=<path to agent.jar>`, defaults to /opt/jenkins/agent.jar.
 5. Configure Jenkins master URL by running `svccfg -s site/jenkins setprop jenkins/url=<Jenkins master URL>`.
